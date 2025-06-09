@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Token ID</title>
+</head>
+<body>
+
+    <div style="justify-self: center;">
+        <ul style="background-color: greenyellow;">
+        <h1>One time payment here!</h1>
+        <h2><b>Account Number:</b> 9130099825</h2>
+        <h2><b>Account Name:</b> Adebayo Rasheedat Aderonke</h2>
+        <h2><b>Bank:</b> Opay</h2>
+        <a href="Pay 6,000.html">Confirm Payment</a>
+        </ul>
+    </div>
+
+    <script>
+  document.getElementById('pay-btn').onclick = async () => {
+    const response = await fetch('http://localhost:4242/create-checkout-session', {
+      method: 'POST',
+    });
+    const data = await response.json();
+    window.location.href = data.url;
+  };
+</script>
+</body>
+</html>
